@@ -1,0 +1,30 @@
+{
+  "country": "Germany",
+  "year": 2024,
+  "currency": "EUR",
+  "incomeTax": {
+    "brackets": {
+      "single": [
+        { "min": 0, "max": 10908, "rate": 0 },
+        { "min": 10908, "max": 15999, "rate": 0.14 },
+        { "min": 15999, "max": 62809, "rate": 0.24 },
+        { "min": 62809, "max": 277825, "rate": 0.42 },
+        { "min": 277825, "max": null, "rate": 0.45 }
+      ]
+    },
+    "solidarityTax": 0.055,
+    "churchTax": 0.08
+  },
+  "socialInsurance": {
+    "pension": { "rate": 0.186, "max": 87600 },
+    "unemployment": { "rate": 0.024, "max": 87600 },
+    "health": { "rate": 0.146, "max": 62550 },
+    "nursing": { "rate": 0.0305, "max": 62550 }
+  },
+  "vatRates": {
+    "standard": 0.19,
+    "reduced": 0.07
+  },
+  "lastUpdated": "2024-01-01",
+  "source": "Bundesministerium der Finanzen"
+}

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullCal - The Most Complete Online Calculator | colletools.com</title>
+    <meta name="description" content="Free online calculators for finance, health, sports, utilities and more. Privacy-focused calculations performed locally in your browser. Part of colletools.com suite.">
+    <link rel="canonical" href="https://fullcal.colletools.com/">
+    <meta property="og:title" content="FullCal - Complete Online Calculator Suite">
+    <meta property="og:description" content="45+ Free calculators for all your needs. Fast, private, and always available.">
+    <meta property="og:url" content="https://fullcal.colletools.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FullCal by colletools.com">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <h1>FullCal</h1>
+                    <span class="tagline">Complete Calculator Suite</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#finance" class="nav-link">Finance</a>
+                    <a href="#tax" class="nav-link">Tax</a>
+                    <a href="#utility" class="nav-link">Utility</a>
+                    <a href="#health" class="nav-link">Health</a>
+                    <a href="#sports" class="nav-link">Sports</a>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">The Most Complete Online Calculator</h1>
+                    <p class="hero-subtitle">45+ Free calculators for all your needs. Fast, private, and always available.</p>
+                    <div class="hero-features">
+                        <div class="feature">
+                            <span class="feature-icon">FAST</span>
+                            <span>Instant Speed</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">PRIVATE</span>
+                            <span>Total Privacy</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">MOBILE</span>
+                            <span>All Devices</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">FREE</span>
+                            <span>Completely Free</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="finance" class="calculator-section">
+            <div class="container">
+                <h2 class="section-title">Finance Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calculator-card popular">
+                        <div class="card-header">
+                            <h3>Salary Calculator</h3>
+                            <span class="badge popular-badge">Most Used</span>
+                        </div>
+                        <p>Calculate net salary from gross salary</p>
+                        <button class="calc-button" onclick="openCalculator('salary')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Mortgage Calculator</h3>
+                        </div>
+                        <p>Calculate monthly mortgage payments</p>
+                        <button class="calc-button" onclick="openCalculator('mortgage')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Loan Calculator</h3>
+                        </div>
+                        <p>Calculate loan payments and interest</p>
+                        <button class="calc-button" onclick="openCalculator('loan')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Investment Calculator</h3>
+                        </div>
+                        <p>Calculate investment returns</p>
+                        <button class="calc-button" onclick="openCalculator('investment')">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tax" class="calculator-section">
+            <div class="container">
+                <h2 class="section-title">Tax Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Income Tax Calculator</h3>
+                        </div>
+                        <p>Calculate income tax obligations</p>
+                        <button class="calc-button" onclick="openCalculator('income-tax')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Sales Tax Calculator</h3>
+                        </div>
+                        <p>Calculate sales tax amounts</p>
+                        <button class="calc-button" onclick="openCalculator('sales-tax')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Self-Employment Tax</h3>
+                        </div>
+                        <p>Calculate self-employment taxes</p>
+                        <button class="calc-button" onclick="openCalculator('self-employment')">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3>Property Tax</h3>
+                            <span class="badge new-badge">New</span>
+                        </div>
+                        <p>Calculate property tax amounts</p>
+                        <button class="calc-button" onclick="openCalculator('property-tax')">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="utility" class="calculator-section">
+            <div class="container">
+                <h2 class="section-title">Utility Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Date Calculator</h3>
+                        </div>
+                        <p>Calculate dates and time differences</p>
+                        <button class="calc-button" onclick="openCalculator('date')">Calculate</button>
+                    </div>
+                    <div class="calculator-card popular">
+                        <div class="card-header">
+                            <h3>Unit Converter</h3>
+                            <span class="badge popular-badge">Most Used</span>
+                        </div>
+                        <p>Convert between different units</p>
+                        <button class="calc-button" onclick="openCalculator('unit-converter')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Percentage Calculator</h3>
+                        </div>
+                        <p>Calculate percentages and ratios</p>
+                        <button class="calc-button" onclick="openCalculator('percentage')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Area Calculator</h3>
+                        </div>
+                        <p>Calculate areas of various shapes</p>
+                        <button class="calc-button" onclick="openCalculator('area')">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="health" class="calculator-section">
+            <div class="container">
+                <h2 class="section-title">Health Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calculator-card popular">
+                        <div class="card-header">
+                            <h3>BMI Calculator</h3>
+                            <span class="badge popular-badge">Most Used</span>
+                        </div>
+                        <p>Calculate Body Mass Index</p>
+                        <button class="calc-button" onclick="openCalculator('bmi')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Calorie Calculator</h3>
+                        </div>
+                        <p>Calculate daily calorie needs</p>
+                        <button class="calc-button" onclick="openCalculator('calories')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Water Intake</h3>
+                        </div>
+                        <p>Calculate daily water requirements</p>
+                        <button class="calc-button" onclick="openCalculator('water')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Body Fat Calculator</h3>
+                        </div>
+                        <p>Estimate body fat percentage</p>
+                        <button class="calc-button" onclick="openCalculator('body-fat')">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sports" class="calculator-section">
+            <div class="container">
+                <h2 class="section-title">Sports Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Calories Burned</h3>
+                        </div>
+                        <p>Calculate calories burned during exercise</p>
+                        <button class="calc-button" onclick="openCalculator('calories-burned')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Running Pace</h3>
+                        </div>
+                        <p>Calculate running pace and times</p>
+                        <button class="calc-button" onclick="openCalculator('running-pace')">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>One Rep Max</h3>
+                        </div>
+                        <p>Calculate maximum lifting capacity</p>
+                        <button class="calc-button" onclick="openCalculator('one-rep-max')">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3>Training Zones</h3>
+                            <span class="badge new-badge">New</span>
+                        </div>
+                        <p>Calculate heart rate training zones</p>
+                        <button class="calc-button" onclick="openCalculator('training-zones')">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FullCal</h3>
+                    <p>The most complete online calculator platform. All calculations are performed locally in your browser for maximum privacy.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#finance">Finance</a></li>
+                        <li><a href="#tax">Tax</a></li>
+                        <li><a href="#utility">Utility</a></li>
+                        <li><a href="#health">Health</a></li>
+                        <li><a href="#sports">Sports</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Instant calculations</li>
+                        <li>Complete privacy</li>
+                        <li>Mobile friendly</li>
+                        <li>Always free</li>
+                        <li><button onclick="showTaxUpdateStatus()" style="background:none;border:none;color:#bdc3c7;text-decoration:underline;cursor:pointer;font-size:inherit;">Auto-updating tax rates</button></li>
+                        <li><button onclick="runFullCalTests()" style="background:none;border:none;color:#bdc3c7;text-decoration:underline;cursor:pointer;font-size:inherit;">🧪 Run Function Tests</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FullCal. All rights reserved. Privacy-first calculations.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Calculator Modal -->
+    <div id="calculator-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Calculator</h2>
+                <span class="close-modal" onclick="closeCalculator()">&times;</span>
+            </div>
+            <div class="modal-body" id="calculator-content">
+                <!-- Calculator content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/calculators.js"></script>
+    <script src="js/calculator-implementations.js"></script>
+    <script src="js/tax-config.js"></script>
+    <script src="js/auto-tax-updater.js"></script>
+    <script src="js/test-suite.js"></script>
+</body>
+</html>

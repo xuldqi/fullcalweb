@@ -1,0 +1,37 @@
+{
+  "country": "France",
+  "year": 2024,
+  "currency": "EUR",
+  "incomeTax": {
+    "brackets": {
+      "single": [
+        { "min": 0, "max": 10777, "rate": 0 },
+        { "min": 10777, "max": 27478, "rate": 0.11 },
+        { "min": 27478, "max": 78570, "rate": 0.30 },
+        { "min": 78570, "max": 168994, "rate": 0.41 },
+        { "min": 168994, "max": null, "rate": 0.45 }
+      ],
+      "married": [
+        { "min": 0, "max": 21554, "rate": 0 },
+        { "min": 21554, "max": 54956, "rate": 0.11 },
+        { "min": 54956, "max": 157140, "rate": 0.30 },
+        { "min": 157140, "max": 337988, "rate": 0.41 },
+        { "min": 337988, "max": null, "rate": 0.45 }
+      ]
+    }
+  },
+  "socialContributions": {
+    "csg": 0.092,
+    "crds": 0.005,
+    "pensionEmployee": 0.1128,
+    "unemployment": 0.024,
+    "health": 0.0075
+  },
+  "vatRates": {
+    "standard": 0.20,
+    "reduced": 0.055,
+    "intermediate": 0.10
+  },
+  "lastUpdated": "2024-01-01",
+  "source": "Direction générale des Finances publiques"
+}
