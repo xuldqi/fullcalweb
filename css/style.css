@@ -14,6 +14,18 @@
     --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
     --border-radius: 12px;
     --transition: all 0.3s ease;
+    
+    /* Category Colors - Light & Subtle */
+    --finance-bg: #e8f5e8;
+    --finance-border: #4caf50;
+    --tax-bg: #e3f2fd;
+    --tax-border: #2196f3;
+    --utility-bg: #f3e5f5;
+    --utility-border: #9c27b0;
+    --health-bg: #fff3e0;
+    --health-border: #ff9800;
+    --sports-bg: #ffebee;
+    --sports-border: #f44336;
 }
 
 * {
@@ -182,10 +194,59 @@ body {
     border: 1px solid rgba(255, 107, 53, 0.1);
 }
 
+/* Category-specific colors */
+.calculator-card.finance {
+    background: var(--finance-bg);
+    border-color: rgba(76, 175, 80, 0.3);
+}
+
+.calculator-card.finance:hover {
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
+    border-color: var(--finance-border);
+}
+
+.calculator-card.tax {
+    background: var(--tax-bg);
+    border-color: rgba(33, 150, 243, 0.3);
+}
+
+.calculator-card.tax:hover {
+    box-shadow: 0 8px 25px rgba(33, 150, 243, 0.15);
+    border-color: var(--tax-border);
+}
+
+.calculator-card.utility {
+    background: var(--utility-bg);
+    border-color: rgba(156, 39, 176, 0.3);
+}
+
+.calculator-card.utility:hover {
+    box-shadow: 0 8px 25px rgba(156, 39, 176, 0.15);
+    border-color: var(--utility-border);
+}
+
+.calculator-card.health {
+    background: var(--health-bg);
+    border-color: rgba(255, 152, 0, 0.3);
+}
+
+.calculator-card.health:hover {
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.15);
+    border-color: var(--health-border);
+}
+
+.calculator-card.sports {
+    background: var(--sports-bg);
+    border-color: rgba(244, 67, 54, 0.3);
+}
+
+.calculator-card.sports:hover {
+    box-shadow: 0 8px 25px rgba(244, 67, 54, 0.15);
+    border-color: var(--sports-border);
+}
+
 .calculator-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.15);
-    border-color: rgba(255, 107, 53, 0.2);
 }
 
 .calculator-card.popular {
