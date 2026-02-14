@@ -318,8 +318,8 @@ class CalculatorEngine {
     }
 
     // Formatting helpers
-    formatCurrency(amount, currency = 'USD') {
-        return new Intl.NumberFormat('en-US', {
+    formatCurrency(amount, currency = 'USD', locale = 'en-US') {
+        return new Intl.NumberFormat(locale, {
             style: 'currency',
             currency: currency
         }).format(amount);

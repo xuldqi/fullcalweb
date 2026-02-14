@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullCal - The Most Complete Online Calculator | colletools.com</title>
+    <meta name="description" content="Free online calculators for finance, health, sports, utilities and more. Privacy-focused calculations performed locally in your browser. Part of colletools.com suite.">
+    <link rel="canonical" href="https://fullcal.colletools.com/">
+    <meta property="og:title" content="FullCal - Complete Online Calculator Suite">
+    <meta property="og:description" content="45+ Free calculators for all your needs. Fast, private, and always available.">
+    <meta property="og:url" content="https://fullcal.colletools.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="FullCal by colletools.com">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/i18n.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <div class="logo-icon">🧮</div>
+                    <div class="logo-text">
+                        <h1>FullCal</h1>
+                        <span class="tagline" data-i18n="footer.title">Complete Calculator Suite</span>
+                    </div>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#calculators" class="nav-link">Calculators</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#changelog" class="nav-link">Changelog</a>
+                </nav>
+                <div class="language-selector">
+                    <select id="language-selector" onchange="i18n.setLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="de">Deutsch</option>
+                        <option value="ja">日本語</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 data-i18n="hero.title">The Most Complete Online Calculator</h1>
+                <p data-i18n="hero.subtitle">45+ Free calculators for all your needs. Fast, private, and always available.</p>
+                <div class="hero-features">
+                    <div class="feature">
+                        <span class="feature-icon">⚡</span>
+                        <span data-i18n="hero.feature.fast">Instant Speed</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🔒</span>
+                        <span data-i18n="hero.feature.private">Total Privacy</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📱</span>
+                        <span data-i18n="hero.feature.mobile">All Devices</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🆓</span>
+                        <span data-i18n="hero.feature.free">Completely Free</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Categories Grid -->
+        <section class="calculator-categories">
+            <div class="container">
+                <div class="categories-grid">
+                    <!-- Finance Category -->
+                    <div class="category-card finance-category">
+                        <div class="category-header">
+                            <div class="category-icon">💰</div>
+                            <div class="category-info">
+                                <h3 data-i18n="nav.finance">Finance</h3>
+                                <span class="category-count">10</span>
+                            </div>
+                        </div>
+                        <div class="calculators-list">
+                            <div class="calculator-item" onclick="openCalculator('salary')">
+                                <div class="calc-icon">💰</div>
+                                <span data-i18n="calc.salary">Salary Calculator</span>
+                                <span class="badge popular">MOST USED</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('mortgage')">
+                                <div class="calc-icon">🏠</div>
+                                <span data-i18n="calc.mortgage">Mortgage Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('loan')">
+                                <div class="calc-icon">💳</div>
+                                <span data-i18n="calc.loan">Loan Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('investment')">
+                                <div class="calc-icon">📈</div>
+                                <span data-i18n="calc.investment">Investment Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('compound')">
+                                <div class="calc-icon">📊</div>
+                                <span data-i18n="calc.compound">Compound Interest</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('cagr')">
+                                <div class="calc-icon">📈</div>
+                                <span data-i18n="calc.cagr">CAGR Calculator</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('inflation')">
+                                <div class="calc-icon">📊</div>
+                                <span data-i18n="calc.inflation">Inflation Calculator</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('personal-loan')">
+                                <div class="calc-icon">💳</div>
+                                <span data-i18n="calc.personal_loan">Personal Loan</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('margins')">
+                                <div class="calc-icon">📈</div>
+                                <span data-i18n="calc.margins">Margins & Markup</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('variable-mortgage')">
+                                <div class="calc-icon">🏠</div>
+                                <span data-i18n="calc.variable_mortgage">Variable Mortgage</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tax Category -->
+                    <div class="category-card tax-category">
+                        <div class="category-header">
+                            <div class="category-icon">📋</div>
+                            <div class="category-info">
+                                <h3 data-i18n="nav.tax">Tax</h3>
+                                <span class="category-count">4</span>
+                            </div>
+                        </div>
+                        <div class="calculators-list">
+                            <div class="calculator-item" onclick="openCalculator('income-tax')">
+                                <div class="calc-icon">🧾</div>
+                                <span data-i18n="calc.income_tax">Income Tax Calculator</span>
+                                <span class="badge popular">MOST USED</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('sales-tax')">
+                                <div class="calc-icon">🛒</div>
+                                <span data-i18n="calc.sales_tax">Sales Tax Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('self-employment')">
+                                <div class="calc-icon">💼</div>
+                                <span data-i18n="calc.self_employment">Self-Employment Tax</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('property-tax')">
+                                <div class="calc-icon">🏠</div>
+                                <span data-i18n="calc.property_tax">Property Tax Calculator</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Utility Category -->
+                    <div class="category-card utility-category">
+                        <div class="category-header">
+                            <div class="category-icon">🛠️</div>
+                            <div class="category-info">
+                                <h3 data-i18n="nav.utility">Utility</h3>
+                                <span class="category-count">11</span>
+                            </div>
+                        </div>
+                        <div class="calculators-list">
+                            <div class="calculator-item" onclick="openCalculator('date')">
+                                <div class="calc-icon">📅</div>
+                                <span data-i18n="calc.date">Date Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('unit-converter')">
+                                <div class="calc-icon">⚖️</div>
+                                <span data-i18n="calc.unit_converter">Unit Converter</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('percentage')">
+                                <div class="calc-icon">%</div>
+                                <span data-i18n="calc.percentage">Percentage Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('area')">
+                                <div class="calc-icon">📏</div>
+                                <span data-i18n="calc.area">Area Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('time-calculator')">
+                                <div class="calc-icon">⏰</div>
+                                <span data-i18n="calc.time_calculator">Time Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('working-days')">
+                                <div class="calc-icon">🗓️</div>
+                                <span data-i18n="calc.working_days">Working Days</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('size-converter')">
+                                <div class="calc-icon">📏</div>
+                                <span data-i18n="calc.size_converter">Size Converter</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('holiday-optimizer')">
+                                <div class="calc-icon">🏖️</div>
+                                <span data-i18n="calc.holiday_optimizer">Holiday Optimizer</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('password-generator')">
+                                <div class="calc-icon">🔒</div>
+                                <span data-i18n="calc.password_generator">Password Generator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('unit-price')">
+                                <div class="calc-icon">🔍</div>
+                                <span data-i18n="calc.unit_price">Unit Price Calculator</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('reading-time')">
+                                <div class="calc-icon">📚</div>
+                                <span data-i18n="calc.reading_time">Reading Time</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health Category -->
+                    <div class="category-card health-category">
+                        <div class="category-header">
+                            <div class="category-icon">⚕️</div>
+                            <div class="category-info">
+                                <h3 data-i18n="nav.health">Health</h3>
+                                <span class="category-count">8</span>
+                            </div>
+                        </div>
+                        <div class="calculators-list">
+                            <div class="calculator-item" onclick="openCalculator('bmi')">
+                                <div class="calc-icon">⚖️</div>
+                                <span data-i18n="calc.bmi">BMI Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('calories')">
+                                <div class="calc-icon">🔥</div>
+                                <span data-i18n="calc.calories">Calorie Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('water')">
+                                <div class="calc-icon">💧</div>
+                                <span data-i18n="calc.water">Water Intake Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('body-fat')">
+                                <div class="calc-icon">⚖️</div>
+                                <span data-i18n="calc.body_fat">Body Fat Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('cholesterol')">
+                                <div class="calc-icon">🩺</div>
+                                <span data-i18n="calc.cholesterol">Cholesterol Calculator</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('calorie-deficit')">
+                                <div class="calc-icon">📉</div>
+                                <span data-i18n="calc.calorie_deficit">Calorie Deficit</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('biological-age')">
+                                <div class="calc-icon">🧬</div>
+                                <span data-i18n="calc.biological_age">Biological Age</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('ideal-weight')">
+                                <div class="calc-icon">⚖️</div>
+                                <span data-i18n="calc.ideal_weight">Ideal Weight</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sports Category -->
+                    <div class="category-card sports-category">
+                        <div class="category-header">
+                            <div class="category-icon">🏃</div>
+                            <div class="category-info">
+                                <h3 data-i18n="nav.sports">Sports</h3>
+                                <span class="category-count">8</span>
+                            </div>
+                        </div>
+                        <div class="calculators-list">
+                            <div class="calculator-item" onclick="openCalculator('calories-burned')">
+                                <div class="calc-icon">🔥</div>
+                                <span data-i18n="calc.calories_burned">Calories Burned</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('one-rep-max')">
+                                <div class="calc-icon">💪</div>
+                                <span data-i18n="calc.one_rep_max">1RM Calculator</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('running-pace')">
+                                <div class="calc-icon">🏃</div>
+                                <span data-i18n="calc.running_pace">Running Pace</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('training-zones')">
+                                <div class="calc-icon">❤️</div>
+                                <span data-i18n="calc.training_zones">Training Zones</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('steps-to-calories')">
+                                <div class="calc-icon">🚶</div>
+                                <span data-i18n="calc.steps_to_calories">Steps → Calories</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('pace-to-speed')">
+                                <div class="calc-icon">⚡</div>
+                                <span data-i18n="calc.pace_to_speed">Pace → Speed</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('vo2max')">
+                                <div class="calc-icon">🫁</div>
+                                <span data-i18n="calc.vo2max">VO2max Test</span>
+                            </div>
+                            <div class="calculator-item" onclick="openCalculator('crosstraining')">
+                                <div class="calc-icon">🔁</div>
+                                <span data-i18n="calc.crosstraining">CrossTraining Converter</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education Category -->
+                    <div class="category-card education-category">
+                        <div class="category-header">
+                            <div class="category-icon">🎓</div>
+                            <div class="category-info">
+                                <h3 data-i18n="nav.education">Education</h3>
+                                <span class="category-count">1</span>
+                            </div>
+                        </div>
+                        <div class="calculators-list">
+                            <div class="calculator-item" onclick="openCalculator('grade-calculator')">
+                                <div class="calc-icon">🎓</div>
+                                <span data-i18n="calc.grade_calculator">Grade Calculator</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-left">
+                        <span class="privacy-indicator">🔒 Total Privacy • No Data Saved</span>
+                    </div>
+                    <div class="footer-right">
+                        <span class="calculator-count">42 calculators</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Calculator Modal -->
+    <div id="calculator-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title" data-i18n="common.calculator">Calculator</h2>
+                <span class="close-modal" onclick="closeCalculator()">&times;</span>
+            </div>
+            <div class="modal-body" id="calculator-content">
+                <!-- Calculator content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/calculators.js"></script>
+    <script src="js/calculator-implementations.js"></script>
+    <script src="js/tax-config.js"></script>
+    <script src="js/auto-tax-updater.js"></script>
+    <script src="js/test-suite.js"></script>
+</body>
+</html>

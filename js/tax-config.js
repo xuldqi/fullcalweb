@@ -482,7 +482,7 @@ class TaxConfiguration {
     getAvailableRegions() {
         return Object.keys(this.taxConfigs).map(key => ({
             code: key,
-            name: this.taxConfigs[key].name,
+            name: window.i18n ? window.i18n.t(`region.${key.toLowerCase()}`) : this.taxConfigs[key].name,
             currency: this.taxConfigs[key].currency
         }));
     }

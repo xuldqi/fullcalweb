@@ -12,6 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="FullCal by colletools.com">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/i18n.js"></script>
 </head>
 <body>
     <header class="header">
@@ -19,15 +20,25 @@
             <div class="navbar">
                 <div class="logo">
                     <h1>FullCal</h1>
-                    <span class="tagline">Complete Calculator Suite</span>
+                    <span class="tagline" data-i18n="footer.title">Complete Calculator Suite</span>
                 </div>
                 <nav class="nav-menu">
-                    <a href="#finance" class="nav-link">Finance</a>
-                    <a href="#tax" class="nav-link">Tax</a>
-                    <a href="#utility" class="nav-link">Utility</a>
-                    <a href="#health" class="nav-link">Health</a>
-                    <a href="#sports" class="nav-link">Sports</a>
+                    <a href="#finance" class="nav-link" data-i18n="nav.finance">Finance</a>
+                    <a href="#tax" class="nav-link" data-i18n="nav.tax">Tax</a>
+                    <a href="#utility" class="nav-link" data-i18n="nav.utility">Utility</a>
+                    <a href="#health" class="nav-link" data-i18n="nav.health">Health</a>
+                    <a href="#sports" class="nav-link" data-i18n="nav.sports">Sports</a>
+                    <a href="#education" class="nav-link" data-i18n="nav.education">Education</a>
                 </nav>
+                <div class="language-selector">
+                    <select id="language-selector" onchange="i18n.setLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="de">Deutsch</option>
+                        <option value="ja">日本語</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
                 <div class="mobile-menu-toggle">
                     <span></span>
                     <span></span>
@@ -41,24 +52,24 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="hero-title">The Most Complete Online Calculator</h1>
-                    <p class="hero-subtitle">45+ Free calculators for all your needs. Fast, private, and always available.</p>
+                    <h1 class="hero-title" data-i18n="hero.title">The Most Complete Online Calculator</h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">45+ Free calculators for all your needs. Fast, private, and always available.</p>
                     <div class="hero-features">
                         <div class="feature">
                             <span class="feature-icon">FAST</span>
-                            <span>Instant Speed</span>
+                            <span data-i18n="hero.feature.fast">Instant Speed</span>
                         </div>
                         <div class="feature">
                             <span class="feature-icon">PRIVATE</span>
-                            <span>Total Privacy</span>
+                            <span data-i18n="hero.feature.private">Total Privacy</span>
                         </div>
                         <div class="feature">
                             <span class="feature-icon">MOBILE</span>
-                            <span>All Devices</span>
+                            <span data-i18n="hero.feature.mobile">All Devices</span>
                         </div>
                         <div class="feature">
                             <span class="feature-icon">FREE</span>
-                            <span>Completely Free</span>
+                            <span data-i18n="hero.feature.free">Completely Free</span>
                         </div>
                     </div>
                 </div>
@@ -67,36 +78,75 @@
 
         <section id="finance" class="calculator-section">
             <div class="container">
-                <h2 class="section-title">Finance Calculators</h2>
+                <h2 class="section-title" data-i18n="section.finance">Finance Calculators</h2>
                 <div class="calculator-grid">
                     <div class="calculator-card popular">
                         <div class="card-header">
-                            <h3>Salary Calculator</h3>
-                            <span class="badge popular-badge">Most Used</span>
+                            <h3 data-i18n="calc.salary">Salary Calculator</h3>
+                            <span class="badge popular-badge" data-i18n="badge.popular">Most Used</span>
                         </div>
-                        <p>Calculate net salary from gross salary</p>
-                        <button class="calc-button" onclick="openCalculator('salary')">Calculate</button>
+                        <p data-i18n="desc.salary">Calculate net salary from gross salary</p>
+                        <button class="calc-button" onclick="openCalculator('salary')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Mortgage Calculator</h3>
+                            <h3 data-i18n="calc.mortgage">Mortgage Calculator</h3>
                         </div>
-                        <p>Calculate monthly mortgage payments</p>
-                        <button class="calc-button" onclick="openCalculator('mortgage')">Calculate</button>
+                        <p data-i18n="desc.mortgage">Calculate monthly mortgage payments</p>
+                        <button class="calc-button" onclick="openCalculator('mortgage')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Loan Calculator</h3>
+                            <h3 data-i18n="calc.loan">Loan Calculator</h3>
                         </div>
-                        <p>Calculate loan payments and interest</p>
-                        <button class="calc-button" onclick="openCalculator('loan')">Calculate</button>
+                        <p data-i18n="desc.loan">Calculate loan payments and interest</p>
+                        <button class="calc-button" onclick="openCalculator('loan')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Investment Calculator</h3>
+                            <h3 data-i18n="calc.investment">Investment Calculator</h3>
                         </div>
-                        <p>Calculate investment returns</p>
-                        <button class="calc-button" onclick="openCalculator('investment')">Calculate</button>
+                        <p data-i18n="desc.investment">Calculate investment returns</p>
+                        <button class="calc-button" onclick="openCalculator('investment')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.cagr">CAGR Calculator</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.cagr">Calculate Compound Annual Growth Rate</p>
+                        <button class="calc-button" onclick="openCalculator('cagr')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.inflation">Inflation Calculator</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.inflation">Calculate inflation impact on purchasing power</p>
+                        <button class="calc-button" onclick="openCalculator('inflation')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.personal_loan">Personal Loan Calculator</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.personal_loan">Calculate personal loan payments and interest</p>
+                        <button class="calc-button" onclick="openCalculator('personal-loan')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.margins">Margins & Markup Calculator</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.margins">Calculate profit margins and markup percentages</p>
+                        <button class="calc-button" onclick="openCalculator('margins')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.variable_mortgage">Variable Mortgage Calculator</h3>
+                        </div>
+                        <p data-i18n="desc.variable_mortgage">Calculate variable rate mortgage payments</p>
+                        <button class="calc-button" onclick="openCalculator('variable-mortgage')" data-i18n="common.calculate">Calculate</button>
                     </div>
                 </div>
             </div>
@@ -104,36 +154,36 @@
 
         <section id="tax" class="calculator-section">
             <div class="container">
-                <h2 class="section-title">Tax Calculators</h2>
+                <h2 class="section-title" data-i18n="section.tax">Tax Calculators</h2>
                 <div class="calculator-grid">
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Income Tax Calculator</h3>
+                            <h3 data-i18n="calc.income-tax">Income Tax Calculator</h3>
                         </div>
-                        <p>Calculate income tax obligations</p>
-                        <button class="calc-button" onclick="openCalculator('income-tax')">Calculate</button>
+                        <p data-i18n="desc.income-tax">Calculate income tax obligations</p>
+                        <button class="calc-button" onclick="openCalculator('income-tax')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Sales Tax Calculator</h3>
+                            <h3 data-i18n="calc.sales-tax">Sales Tax Calculator</h3>
                         </div>
-                        <p>Calculate sales tax amounts</p>
-                        <button class="calc-button" onclick="openCalculator('sales-tax')">Calculate</button>
+                        <p data-i18n="desc.sales-tax">Calculate sales tax amounts</p>
+                        <button class="calc-button" onclick="openCalculator('sales-tax')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Self-Employment Tax</h3>
+                            <h3 data-i18n="calc.self-employment">Self-Employment Tax</h3>
                         </div>
-                        <p>Calculate self-employment taxes</p>
-                        <button class="calc-button" onclick="openCalculator('self-employment')">Calculate</button>
+                        <p data-i18n="desc.self-employment">Calculate self-employment taxes</p>
+                        <button class="calc-button" onclick="openCalculator('self-employment')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card new">
                         <div class="card-header">
-                            <h3>Property Tax</h3>
-                            <span class="badge new-badge">New</span>
+                            <h3 data-i18n="calc.property-tax">Property Tax</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
                         </div>
-                        <p>Calculate property tax amounts</p>
-                        <button class="calc-button" onclick="openCalculator('property-tax')">Calculate</button>
+                        <p data-i18n="desc.property-tax">Calculate property tax amounts</p>
+                        <button class="calc-button" onclick="openCalculator('property-tax')" data-i18n="common.calculate">Calculate</button>
                     </div>
                 </div>
             </div>
@@ -141,36 +191,90 @@
 
         <section id="utility" class="calculator-section">
             <div class="container">
-                <h2 class="section-title">Utility Calculators</h2>
+                <h2 class="section-title" data-i18n="section.utility">Utility Calculators</h2>
                 <div class="calculator-grid">
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Date Calculator</h3>
+                            <h3 data-i18n="calc.date">Date Calculator</h3>
                         </div>
-                        <p>Calculate dates and time differences</p>
-                        <button class="calc-button" onclick="openCalculator('date')">Calculate</button>
+                        <p data-i18n="desc.date">Calculate dates and time differences</p>
+                        <button class="calc-button" onclick="openCalculator('date')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card popular">
                         <div class="card-header">
-                            <h3>Unit Converter</h3>
-                            <span class="badge popular-badge">Most Used</span>
+                            <h3 data-i18n="calc.unit-converter">Unit Converter</h3>
+                            <span class="badge popular-badge" data-i18n="badge.popular">Most Used</span>
                         </div>
-                        <p>Convert between different units</p>
-                        <button class="calc-button" onclick="openCalculator('unit-converter')">Calculate</button>
+                        <p data-i18n="desc.unit-converter">Convert between different units</p>
+                        <button class="calc-button" onclick="openCalculator('unit-converter')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Percentage Calculator</h3>
+                            <h3 data-i18n="calc.percentage">Percentage Calculator</h3>
                         </div>
-                        <p>Calculate percentages and ratios</p>
-                        <button class="calc-button" onclick="openCalculator('percentage')">Calculate</button>
+                        <p data-i18n="desc.percentage">Calculate percentages and ratios</p>
+                        <button class="calc-button" onclick="openCalculator('percentage')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Area Calculator</h3>
+                            <h3 data-i18n="calc.area">Area Calculator</h3>
                         </div>
-                        <p>Calculate areas of various shapes</p>
-                        <button class="calc-button" onclick="openCalculator('area')">Calculate</button>
+                        <p data-i18n="desc.area">Calculate areas of various shapes</p>
+                        <button class="calc-button" onclick="openCalculator('area')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.time_calculator">Time Calculator</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.time_calculator">Add and subtract time values</p>
+                        <button class="calc-button" onclick="openCalculator('time-calculator')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.working_days">Working Days Calculator</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.working_days">Calculate working days between dates</p>
+                        <button class="calc-button" onclick="openCalculator('working-days')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.size_converter">Size Converter</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.size_converter">Convert clothing and shoe sizes</p>
+                        <button class="calc-button" onclick="openCalculator('size-converter')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.holiday_optimizer">Holiday Optimizer</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.holiday_optimizer">Optimize your holiday schedule</p>
+                        <button class="calc-button" onclick="openCalculator('holiday-optimizer')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.password_generator">Password Generator</h3>
+                        </div>
+                        <p data-i18n="desc.password_generator">Generate secure passwords</p>
+                        <button class="calc-button" onclick="openCalculator('password-generator')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.unit_price">Unit Price Calculator</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.unit_price">Compare prices per unit</p>
+                        <button class="calc-button" onclick="openCalculator('unit-price')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.reading_time">Reading Time Calculator</h3>
+                        </div>
+                        <p data-i18n="desc.reading_time">Calculate reading time for texts</p>
+                        <button class="calc-button" onclick="openCalculator('reading-time')" data-i18n="common.calculate">Calculate</button>
                     </div>
                 </div>
             </div>
@@ -178,36 +282,66 @@
 
         <section id="health" class="calculator-section">
             <div class="container">
-                <h2 class="section-title">Health Calculators</h2>
+                <h2 class="section-title" data-i18n="section.health">Health Calculators</h2>
                 <div class="calculator-grid">
                     <div class="calculator-card popular">
                         <div class="card-header">
-                            <h3>BMI Calculator</h3>
-                            <span class="badge popular-badge">Most Used</span>
+                            <h3 data-i18n="calc.bmi">BMI Calculator</h3>
+                            <span class="badge popular-badge" data-i18n="badge.popular">Most Used</span>
                         </div>
-                        <p>Calculate Body Mass Index</p>
-                        <button class="calc-button" onclick="openCalculator('bmi')">Calculate</button>
+                        <p data-i18n="desc.bmi">Calculate Body Mass Index</p>
+                        <button class="calc-button" onclick="openCalculator('bmi')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Calorie Calculator</h3>
+                            <h3 data-i18n="calc.calories">Calorie Calculator</h3>
                         </div>
-                        <p>Calculate daily calorie needs</p>
-                        <button class="calc-button" onclick="openCalculator('calories')">Calculate</button>
+                        <p data-i18n="desc.calories">Calculate daily calorie needs</p>
+                        <button class="calc-button" onclick="openCalculator('calories')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Water Intake</h3>
+                            <h3 data-i18n="calc.water">Water Intake</h3>
                         </div>
-                        <p>Calculate daily water requirements</p>
-                        <button class="calc-button" onclick="openCalculator('water')">Calculate</button>
+                        <p data-i18n="desc.water">Calculate daily water requirements</p>
+                        <button class="calc-button" onclick="openCalculator('water')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Body Fat Calculator</h3>
+                            <h3 data-i18n="calc.body-fat">Body Fat Calculator</h3>
                         </div>
-                        <p>Estimate body fat percentage</p>
-                        <button class="calc-button" onclick="openCalculator('body-fat')">Calculate</button>
+                        <p data-i18n="desc.body-fat">Estimate body fat percentage</p>
+                        <button class="calc-button" onclick="openCalculator('body-fat')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.cholesterol">Cholesterol Calculator</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.cholesterol">Calculate cholesterol levels and ratios</p>
+                        <button class="calc-button" onclick="openCalculator('cholesterol')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.calorie_deficit">Calorie Deficit Calculator</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.calorie_deficit">Calculate calorie deficit for weight loss</p>
+                        <button class="calc-button" onclick="openCalculator('calorie-deficit')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.biological_age">Biological Age Calculator</h3>
+                        </div>
+                        <p data-i18n="desc.biological_age">Calculate your biological age</p>
+                        <button class="calc-button" onclick="openCalculator('biological-age')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.ideal_weight">Ideal Weight Calculator</h3>
+                        </div>
+                        <p data-i18n="desc.ideal_weight">Calculate your ideal weight range</p>
+                        <button class="calc-button" onclick="openCalculator('ideal-weight')" data-i18n="common.calculate">Calculate</button>
                     </div>
                 </div>
             </div>
@@ -215,36 +349,84 @@
 
         <section id="sports" class="calculator-section">
             <div class="container">
-                <h2 class="section-title">Sports Calculators</h2>
+                <h2 class="section-title" data-i18n="section.sports">Sports Calculators</h2>
                 <div class="calculator-grid">
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Calories Burned</h3>
+                            <h3 data-i18n="calc.calories-burned">Calories Burned</h3>
                         </div>
-                        <p>Calculate calories burned during exercise</p>
-                        <button class="calc-button" onclick="openCalculator('calories-burned')">Calculate</button>
+                        <p data-i18n="desc.calories-burned">Calculate calories burned during exercise</p>
+                        <button class="calc-button" onclick="openCalculator('calories-burned')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>Running Pace</h3>
+                            <h3 data-i18n="calc.running-pace">Running Pace</h3>
                         </div>
-                        <p>Calculate running pace and times</p>
-                        <button class="calc-button" onclick="openCalculator('running-pace')">Calculate</button>
+                        <p data-i18n="desc.running-pace">Calculate running pace and times</p>
+                        <button class="calc-button" onclick="openCalculator('running-pace')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
-                            <h3>One Rep Max</h3>
+                            <h3 data-i18n="calc.one-rep-max">One Rep Max</h3>
                         </div>
-                        <p>Calculate maximum lifting capacity</p>
-                        <button class="calc-button" onclick="openCalculator('one-rep-max')">Calculate</button>
+                        <p data-i18n="desc.one-rep-max">Calculate maximum lifting capacity</p>
+                        <button class="calc-button" onclick="openCalculator('one-rep-max')" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card new">
                         <div class="card-header">
-                            <h3>Training Zones</h3>
-                            <span class="badge new-badge">New</span>
+                            <h3 data-i18n="calc.training-zones">Training Zones</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
                         </div>
-                        <p>Calculate heart rate training zones</p>
-                        <button class="calc-button" onclick="openCalculator('training-zones')">Calculate</button>
+                        <p data-i18n="desc.training-zones">Calculate heart rate training zones</p>
+                        <button class="calc-button" onclick="openCalculator('training-zones')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.steps_to_calories">Steps to Calories</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.steps_to_calories">Convert steps to calories burned</p>
+                        <button class="calc-button" onclick="openCalculator('steps-to-calories')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.pace_to_speed">Pace to Speed</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.pace_to_speed">Convert pace to speed and vice versa</p>
+                        <button class="calc-button" onclick="openCalculator('pace-to-speed')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.vo2max">VO2max Test</h3>
+                        </div>
+                        <p data-i18n="desc.vo2max">Calculate VO2max fitness level</p>
+                        <button class="calc-button" onclick="openCalculator('vo2max')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.crosstraining">CrossTraining Converter</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.crosstraining">Convert between different cardio exercises</p>
+                        <button class="calc-button" onclick="openCalculator('crosstraining')" data-i18n="common.calculate">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="calculator-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="section.education">Education Calculators</h2>
+                <div class="calculator-grid">
+                    <div class="calculator-card new">
+                        <div class="card-header">
+                            <h3 data-i18n="calc.grade_calculator">Grade Calculator</h3>
+                            <span class="badge new-badge" data-i18n="badge.new">New</span>
+                        </div>
+                        <p data-i18n="desc.grade_calculator">Calculate weighted grades and GPA</p>
+                        <button class="calc-button" onclick="openCalculator('grade-calculator')" data-i18n="common.calculate">Calculate</button>
                     </div>
                 </div>
             </div>
@@ -256,32 +438,32 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>FullCal</h3>
-                    <p>The most complete online calculator platform. All calculations are performed locally in your browser for maximum privacy.</p>
+                    <p data-i18n="footer.about">The most complete online calculator platform. All calculations are performed locally in your browser for maximum privacy.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Categories</h4>
+                    <h4 data-i18n="footer.categories">Categories</h4>
                     <ul>
-                        <li><a href="#finance">Finance</a></li>
-                        <li><a href="#tax">Tax</a></li>
-                        <li><a href="#utility">Utility</a></li>
-                        <li><a href="#health">Health</a></li>
-                        <li><a href="#sports">Sports</a></li>
+                        <li><a href="#finance" data-i18n="nav.finance">Finance</a></li>
+                        <li><a href="#tax" data-i18n="nav.tax">Tax</a></li>
+                        <li><a href="#utility" data-i18n="nav.utility">Utility</a></li>
+                        <li><a href="#health" data-i18n="nav.health">Health</a></li>
+                        <li><a href="#sports" data-i18n="nav.sports">Sports</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Features</h4>
+                    <h4 data-i18n="footer.features">Features</h4>
                     <ul>
-                        <li>Instant calculations</li>
-                        <li>Complete privacy</li>
-                        <li>Mobile friendly</li>
-                        <li>Always free</li>
-                        <li><button onclick="showTaxUpdateStatus()" style="background:none;border:none;color:#bdc3c7;text-decoration:underline;cursor:pointer;font-size:inherit;">Auto-updating tax rates</button></li>
+                        <li data-i18n="footer.feature.instant">Instant calculations</li>
+                        <li data-i18n="footer.feature.privacy">Complete privacy</li>
+                        <li data-i18n="footer.feature.mobile">Mobile friendly</li>
+                        <li data-i18n="footer.feature.free">Always free</li>
+                        <li><button onclick="showTaxUpdateStatus()" style="background:none;border:none;color:#bdc3c7;text-decoration:underline;cursor:pointer;font-size:inherit;" data-i18n="footer.feature.auto-update">Auto-updating tax rates</button></li>
                         <li><button onclick="runFullCalTests()" style="background:none;border:none;color:#bdc3c7;text-decoration:underline;cursor:pointer;font-size:inherit;">🧪 Run Function Tests</button></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 FullCal. All rights reserved. Privacy-first calculations.</p>
+                <p data-i18n="footer.copyright">&copy; 2024 FullCal. All rights reserved. Privacy-first calculations.</p>
             </div>
         </div>
     </footer>
@@ -290,7 +472,7 @@
     <div id="calculator-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modal-title">Calculator</h2>
+                <h2 id="modal-title" data-i18n="common.calculator">Calculator</h2>
                 <span class="close-modal" onclick="closeCalculator()">&times;</span>
             </div>
             <div class="modal-body" id="calculator-content">
@@ -299,7 +481,7 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=20250928"></script>
     <script src="js/calculators.js"></script>
     <script src="js/calculator-implementations.js"></script>
     <script src="js/tax-config.js"></script>

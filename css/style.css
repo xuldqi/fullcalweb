@@ -63,6 +63,31 @@ body {
     padding: 1rem 0;
 }
 
+.language-selector {
+    margin-left: 1rem;
+}
+
+.language-selector select {
+    padding: 0.5rem;
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    background: var(--white);
+    color: var(--secondary-color);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.language-selector select:hover {
+    border-color: var(--primary-color);
+}
+
+.language-selector select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+}
+
 .logo h1 {
     font-size: 2rem;
     font-weight: 700;

@@ -407,7 +407,8 @@ class AutoTaxUpdater {
 // Global functions for tax update management
 function showTaxUpdateStatus() {
     if (!window.autoTaxUpdater) {
-        alert('Tax updater not initialized');
+        const msg = window.i18n ? window.i18n.t('alert.tax_updater_not_initialized') : 'Tax updater not initialized';
+        alert(msg);
         return;
     }
 
@@ -416,40 +417,40 @@ function showTaxUpdateStatus() {
     const modalTitle = document.getElementById('modal-title');
     const modalContent = document.getElementById('calculator-content');
 
-    modalTitle.textContent = 'Tax Rate Update Status';
+    modalTitle.textContent = window.i18n ? window.i18n.t('tax_update.title') : 'Tax Rate Update Status';
     modalContent.innerHTML = `
         <div style="padding: 20px;">
-            <h3>📊 Update Status</h3>
+            <h3>📊 ${window.i18n ? window.i18n.t('tax_update.section.status') : 'Update Status'}</h3>
             <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
-                <div style="margin-bottom: 10px;"><strong>Last Update:</strong> ${status.lastUpdate}</div>
-                <div style="margin-bottom: 10px;"><strong>Next Update:</strong> ${status.nextUpdate}</div>
-                <div style="margin-bottom: 10px;"><strong>Update Needed:</strong> ${status.isUpdateNeeded ? '🟡 Yes' : '🟢 No'}</div>
-                <div style="margin-bottom: 10px;"><strong>Supported Regions:</strong> ${status.regions.join(', ')}</div>
+                <div style="margin-bottom: 10px;"><strong>${window.i18n ? window.i18n.t('tax_update.last_update') : 'Last Update'}:</strong> ${status.lastUpdate}</div>
+                <div style="margin-bottom: 10px;"><strong>${window.i18n ? window.i18n.t('tax_update.next_update') : 'Next Update'}:</strong> ${status.nextUpdate}</div>
+                <div style="margin-bottom: 10px;"><strong>${window.i18n ? window.i18n.t('tax_update.update_needed') : 'Update Needed'}:</strong> ${status.isUpdateNeeded ? (window.i18n ? '🟡 ' + window.i18n.t('tax.yes') : '🟡 Yes') : (window.i18n ? '🟢 ' + window.i18n.t('tax.no') : '🟢 No')}</div>
+                <div style="margin-bottom: 10px;"><strong>${window.i18n ? window.i18n.t('tax_update.supported_regions') : 'Supported Regions'}:</strong> ${status.regions.join(', ')}</div>
             </div>
             
-            <h4>🔄 Manual Actions</h4>
+            <h4>🔄 ${window.i18n ? window.i18n.t('tax_update.manual_actions') : 'Manual Actions'}</h4>
             <div style="display: flex; gap: 10px; margin: 15px 0;">
                 <button onclick="forceUpdateTaxRates()" class="calc-button" style="width: auto; padding: 10px 20px;">
-                    Update Now
+                    ${window.i18n ? window.i18n.t('tax_update.update_now') : 'Update Now'}
                 </button>
                 <button onclick="resetTaxCache()" class="calc-button" style="width: auto; padding: 10px 20px; background: #e74c3c;">
-                    Clear Cache
+                    ${window.i18n ? window.i18n.t('tax_update.clear_cache') : 'Clear Cache'}
                 </button>
             </div>
             
-            <h4>ℹ️ How It Works</h4>
+            <h4>ℹ️ ${window.i18n ? window.i18n.t('tax_update.how_it_works') : 'How It Works'}</h4>
             <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; font-size: 14px;">
                 <ul style="margin: 0; padding-left: 20px;">
-                    <li>Tax rates are automatically updated every 24 hours</li>
-                    <li>Data is fetched from official government APIs</li>
-                    <li>Fallback to local data if APIs are unavailable</li>
-                    <li>All data is cached locally for offline use</li>
-                    <li>Updates are validated before being applied</li>
+                    <li>${window.i18n ? window.i18n.t('tax_update.how.24h') : 'Tax rates are automatically updated every 24 hours'}</li>
+                    <li>${window.i18n ? window.i18n.t('tax_update.how.official') : 'Data is fetched from official government APIs'}</li>
+                    <li>${window.i18n ? window.i18n.t('tax_update.how.fallback') : 'Fallback to local data if APIs are unavailable'}</li>
+                    <li>${window.i18n ? window.i18n.t('tax_update.how.cached') : 'All data is cached locally for offline use'}</li>
+                    <li>${window.i18n ? window.i18n.t('tax_update.how.validated') : 'Updates are validated before being applied'}</li>
                 </ul>
             </div>
             
             <div style="margin-top: 20px; font-size: 12px; color: #666;">
-                <p><strong>Data Sources:</strong></p>
+                <p><strong>${window.i18n ? window.i18n.t('tax_update.data_sources') : 'Data Sources'}:</strong></p>
                 <ul style="margin: 5px 0; padding-left: 20px; font-size: 12px;">
                     <li>🇺🇸 US: Internal Revenue Service (IRS)</li>
                     <li>🇨🇳 China: State Taxation Administration</li>
@@ -473,17 +474,17 @@ function forceUpdateTaxRates() {
     
     const button = event.target;
     const originalText = button.textContent;
-    button.textContent = 'Updating...';
+    button.textContent = window.i18n ? window.i18n.t('tax_update.updating') : 'Updating...';
     button.disabled = true;
     
     window.autoTaxUpdater.forceUpdate().then(() => {
-        button.textContent = '✅ Updated';
+        button.textContent = window.i18n ? '✅ ' + window.i18n.t('tax_update.updated') : '✅ Updated';
         setTimeout(() => {
             button.textContent = originalText;
             button.disabled = false;
         }, 2000);
     }).catch(error => {
-        button.textContent = '❌ Failed';
+        button.textContent = window.i18n ? '❌ ' + window.i18n.t('tax_update.failed') : '❌ Failed';
         console.error('Update failed:', error);
         setTimeout(() => {
             button.textContent = originalText;
@@ -498,10 +499,12 @@ function resetTaxCache() {
         keys.forEach(key => localStorage.removeItem(key));
         localStorage.removeItem('fullcal_last_update');
         
-        alert('✅ Tax cache cleared successfully. Page will reload to fetch fresh data.');
+        const ok = window.i18n ? window.i18n.t('alert.cache_cleared_reload') : '✅ Tax cache cleared successfully. Page will reload to fetch fresh data.';
+        alert(ok);
         location.reload();
     } catch (error) {
-        alert('❌ Failed to clear cache: ' + error.message);
+        const errPrefix = window.i18n ? window.i18n.t('alert.cache_clear_failed') : '❌ Failed to clear cache:';
+        alert(errPrefix + ' ' + error.message);
     }
 }
 

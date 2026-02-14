@@ -313,29 +313,8 @@ FullCalApp.prototype.setupSelfEmploymentTaxCalculator = function() {
     }
 };
 
-FullCalApp.prototype.setupPropertyTaxCalculator = function() {
-    const form = document.getElementById('property-tax-form');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const homeValue = parseFloat(document.getElementById('home-value').value);
-            const assessmentRate = parseFloat(document.getElementById('assessment-rate').value) / 100;
-            const millRate = parseFloat(document.getElementById('mill-rate').value);
-            const exemptions = parseFloat(document.getElementById('exemptions').value) || 0;
-            
-            const assessedValue = (homeValue * assessmentRate) - exemptions;
-            const annualPropertyTax = (assessedValue / 1000) * millRate;
-            const monthlyEscrow = annualPropertyTax / 12;
-            const effectiveTaxRate = (annualPropertyTax / homeValue) * 100;
-            
-            document.getElementById('annual-property-tax').textContent = `$${annualPropertyTax.toFixed(2)}`;
-            document.getElementById('assessed-value').textContent = `$${assessedValue.toFixed(2)}`;
-            document.getElementById('monthly-escrow').textContent = `$${monthlyEscrow.toFixed(2)}`;
-            document.getElementById('effective-tax-rate').textContent = `${effectiveTaxRate.toFixed(3)}%`;
-            document.getElementById('property-tax-result').style.display = 'block';
-        });
-    }
-};
+// Property tax calculator is defined in main.js with country switching logic
+// Removed duplicate definition that was overriding the main.js version
 
 FullCalApp.prototype.setupDateCalculator = function() {
     const form = document.getElementById('date-form');
