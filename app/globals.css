@@ -16,6 +16,87 @@ body {
   display: contents;
 }
 
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(12px);
+  background: rgba(247, 244, 237, 0.82);
+  border-bottom: 1px solid rgba(23, 53, 39, 0.09);
+}
+
+.site-header-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.site-branding {
+  display: grid;
+  gap: 4px;
+}
+
+.site-logo-link {
+  width: fit-content;
+  color: #163428;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.site-tagline {
+  margin: 0;
+  color: #4d6d5d;
+  font-size: 0.84rem;
+}
+
+.site-nav-links {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.site-nav-link {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(23, 53, 39, 0.12);
+  color: #1a382b;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  background: rgba(255, 252, 246, 0.85);
+}
+
+.site-controls {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.site-control-field {
+  display: grid;
+  gap: 4px;
+}
+
+.site-control-field span {
+  color: #486858;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-control-field select {
+  min-width: 150px;
+  padding: 7px 9px;
+  border-radius: 10px;
+  border: 1px solid rgba(23, 53, 39, 0.15);
+  background: rgba(255, 252, 246, 0.9);
+  color: #1a382b;
+  font-size: 0.86rem;
+}
+
 .page-shell {
   width: min(1160px, calc(100vw - 40px));
   margin: 0 auto;
@@ -266,6 +347,26 @@ body {
 }
 
 @media (max-width: 960px) {
+  .site-header {
+    position: static;
+  }
+
+  .site-header-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .site-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .site-control-field select {
+    min-width: 0;
+    width: 100%;
+  }
+
   .calculator-hero-grid,
   .hub-hero-grid,
   .calculator-main-grid,
@@ -441,6 +542,10 @@ body {
 }
 
 @media (max-width: 720px) {
+  .site-controls {
+    grid-template-columns: 1fr;
+  }
+
   .link-chip-grid {
     grid-template-columns: 1fr;
   }

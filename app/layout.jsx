@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import './globals.css';
+import SiteHeaderClient from '../components/SiteHeaderClient';
 
 export const metadata = {
   metadataBase: new URL('https://fullcal.colletools.com'),
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/css/style.css" />
       </head>
       <body suppressHydrationWarning>
+        <SiteHeaderClient />
         {children}
         {legacyScripts.map((script) => (
           <Script key={script.src} src={script.src} strategy={script.strategy} />
