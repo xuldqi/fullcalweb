@@ -1,0 +1,36 @@
+{
+  "country": "Canada",
+  "year": 2024,
+  "currency": "CAD",
+  "incomeTax": {
+    "federal": {
+      "brackets": [
+        { "min": 0, "max": 55867, "rate": 0.15 },
+        { "min": 55867, "max": 111733, "rate": 0.205 },
+        { "min": 111733, "max": 173205, "rate": 0.26 },
+        { "min": 173205, "max": 246752, "rate": 0.29 },
+        { "min": 246752, "max": null, "rate": 0.33 }
+      ],
+      "basicPersonalAmount": 15000
+    },
+    "provincial": {
+      "ontario": {
+        "brackets": [
+          { "min": 0, "max": 51446, "rate": 0.0505 },
+          { "min": 51446, "max": 102894, "rate": 0.0915 },
+          { "min": 102894, "max": 150000, "rate": 0.1116 },
+          { "min": 150000, "max": 220000, "rate": 0.1216 },
+          { "min": 220000, "max": null, "rate": 0.1316 }
+        ],
+        "basicPersonalAmount": 12399
+      }
+    }
+  },
+  "socialInsurance": {
+    "cpp": { "rate": 0.0595, "max": 68500 },
+    "ei": { "rate": 0.0163, "max": 63300 }
+  },
+  "gst": 0.05,
+  "lastUpdated": "2024-01-01",
+  "source": "Canada Revenue Agency"
+}

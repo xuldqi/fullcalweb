@@ -52,23 +52,33 @@
 - 服务器: 107.174.250.34
 
 ## 🔧 技术架构
-- **前端**: 纯 HTML5 + CSS3 + JavaScript
-- **框架**: 无依赖，纯原生开发
+- **前端**: Next.js App Router
+- **渲染方式**: Next.js 托管页面入口，复用现有计算器 HTML/CSS/JavaScript 逻辑
 - **样式**: CSS Grid + Flexbox 响应式布局
 - **数据**: JSON 配置文件，支持多国税务规则
 - **缓存**: LocalStorage 本地存储
 
+## 🛠️ 本地开发
+1. 安装依赖：`npm install`
+2. 启动开发环境：`npm run dev`
+3. 构建生产版本：`npm run build`
+4. 启动生产服务：`npm run start`
+
 ## 📦 项目结构
 ```
-├── index.html              # 主页面
-├── css/
-│   └── style.css           # 样式文件
-├── js/
-│   ├── main.js             # 主逻辑
-│   ├── calculators.js      # 计算器界面
-│   ├── calculator-implementations.js  # 计算逻辑
-│   ├── tax-config.js       # 税务配置
-│   └── auto-tax-updater.js # 自动更新系统
+├── app/
+│   ├── layout.jsx          # Next.js 根布局
+│   ├── page.jsx            # 首页入口
+│   └── globals.css         # 全局样式补充
+├── lib/
+│   └── legacy-page.js      # 读取旧版首页 HTML
+├── public/
+│   ├── css/                # 样式文件
+│   ├── js/                 # 计算器脚本
+│   ├── data/               # 各国税务数据
+│   ├── robots.txt
+│   └── sitemap.xml
+├── index.html              # 旧版静态首页（作为迁移源）
 ├── data/                   # 各国税务数据
 │   ├── us-tax-2024.json
 │   ├── cn-tax-2024.json

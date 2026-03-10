@@ -76,6 +76,57 @@
             </div>
         </section>
 
+        <section id="regional-shortcuts" class="calculator-section">
+            <div class="container">
+                <h2 class="section-title">Regional Calculator Shortcuts</h2>
+                <div class="calculator-grid">
+                    <div class="calculator-card popular">
+                        <div class="card-header">
+                            <h3>California Paycheck Calculator</h3>
+                            <span class="badge popular-badge">Hot</span>
+                        </div>
+                        <p>Estimate California take-home pay with state tax and SDI context</p>
+                        <button class="calc-button" onclick="window.location.href='/salary/california-paycheck-calculator'">Open</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Texas Paycheck Calculator</h3>
+                        </div>
+                        <p>Compare Texas take-home pay with a no-state-income-tax baseline</p>
+                        <button class="calc-button" onclick="window.location.href='/salary/texas-paycheck-calculator'">Open</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>UK Tax Calculator</h3>
+                        </div>
+                        <p>Check rough UK take-home pay and tax impact with local framing</p>
+                        <button class="calc-button" onclick="window.location.href='/tax/uk-tax-calculator'">Open</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Canada Income Tax Calculator</h3>
+                        </div>
+                        <p>Estimate Canadian taxes with province-aware context</p>
+                        <button class="calc-button" onclick="window.location.href='/tax/canada-income-tax-calculator'">Open</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Florida Mortgage Calculator</h3>
+                        </div>
+                        <p>Estimate Florida-style monthly mortgage payments fast</p>
+                        <button class="calc-button" onclick="window.location.href='/finance/florida-mortgage-calculator'">Open</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Browse Finance Hub</h3>
+                        </div>
+                        <p>Open the full cluster of finance, salary, mortgage, and tax pages</p>
+                        <button class="calc-button" onclick="window.location.href='/finance'">Open</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="finance" class="calculator-section">
             <div class="container">
                 <h2 class="section-title" data-i18n="section.finance">Finance Calculators</h2>
@@ -86,28 +137,28 @@
                             <span class="badge popular-badge" data-i18n="badge.popular">Most Used</span>
                         </div>
                         <p data-i18n="desc.salary">Calculate net salary from gross salary</p>
-                        <button class="calc-button" onclick="openCalculator('salary')" data-i18n="common.calculate">Calculate</button>
+                        <button class="calc-button" onclick="window.location.href='/salary/gross-to-net-calculator'" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
                             <h3 data-i18n="calc.mortgage">Mortgage Calculator</h3>
                         </div>
                         <p data-i18n="desc.mortgage">Calculate monthly mortgage payments</p>
-                        <button class="calc-button" onclick="openCalculator('mortgage')" data-i18n="common.calculate">Calculate</button>
+                        <button class="calc-button" onclick="window.location.href='/finance/mortgage-calculator'" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
                             <h3 data-i18n="calc.loan">Loan Calculator</h3>
                         </div>
                         <p data-i18n="desc.loan">Calculate loan payments and interest</p>
-                        <button class="calc-button" onclick="openCalculator('loan')" data-i18n="common.calculate">Calculate</button>
+                        <button class="calc-button" onclick="window.location.href='/finance/loan-repayment-calculator'" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
                             <h3 data-i18n="calc.investment">Investment Calculator</h3>
                         </div>
                         <p data-i18n="desc.investment">Calculate investment returns</p>
-                        <button class="calc-button" onclick="openCalculator('investment')" data-i18n="common.calculate">Calculate</button>
+                        <button class="calc-button" onclick="window.location.href='/finance/roi-calculator'" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card new">
                         <div class="card-header">
@@ -148,6 +199,34 @@
                         <p data-i18n="desc.variable_mortgage">Calculate variable rate mortgage payments</p>
                         <button class="calc-button" onclick="openCalculator('variable-mortgage')" data-i18n="common.calculate">Calculate</button>
                     </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Amortization Calculator</h3>
+                        </div>
+                        <p>Generate a full payment schedule for loans and mortgages</p>
+                        <button class="calc-button" onclick="window.location.href='/finance/amortization-calculator'">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Refinance Calculator</h3>
+                        </div>
+                        <p>Compare your current loan against a refinance offer</p>
+                        <button class="calc-button" onclick="window.location.href='/finance/refinance-calculator'">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Hourly to Salary Calculator</h3>
+                        </div>
+                        <p>Convert hourly pay into weekly, monthly, and annual salary</p>
+                        <button class="calc-button" onclick="window.location.href='/salary/hourly-to-salary-calculator'">Calculate</button>
+                    </div>
+                    <div class="calculator-card">
+                        <div class="card-header">
+                            <h3>Net to Gross Calculator</h3>
+                        </div>
+                        <p>Estimate the gross salary needed to hit your take-home target</p>
+                        <button class="calc-button" onclick="window.location.href='/salary/net-to-gross-calculator'">Calculate</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -161,14 +240,14 @@
                             <h3 data-i18n="calc.income-tax">Income Tax Calculator</h3>
                         </div>
                         <p data-i18n="desc.income-tax">Calculate income tax obligations</p>
-                        <button class="calc-button" onclick="openCalculator('income-tax')" data-i18n="common.calculate">Calculate</button>
+                        <button class="calc-button" onclick="window.location.href='/tax/income-tax-calculator'" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">
                             <h3 data-i18n="calc.sales-tax">Sales Tax Calculator</h3>
                         </div>
                         <p data-i18n="desc.sales-tax">Calculate sales tax amounts</p>
-                        <button class="calc-button" onclick="openCalculator('sales-tax')" data-i18n="common.calculate">Calculate</button>
+                        <button class="calc-button" onclick="window.location.href='/tax/vat-calculator'" data-i18n="common.calculate">Calculate</button>
                     </div>
                     <div class="calculator-card">
                         <div class="card-header">

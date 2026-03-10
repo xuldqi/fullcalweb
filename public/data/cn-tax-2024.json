@@ -1,0 +1,45 @@
+{
+  "name": "China",
+  "currency": "¥",
+  "tax_year": 2024,
+  "effective_date": "2024-01-01",
+  "source": "国家税务总局",
+  "incomeTax": {
+    "brackets": {
+      "individual": [
+        { "min": 0, "max": 36000, "rate": 0.03 },
+        { "min": 36000, "max": 144000, "rate": 0.10 },
+        { "min": 144000, "max": 300000, "rate": 0.20 },
+        { "min": 300000, "max": 420000, "rate": 0.25 },
+        { "min": 420000, "max": 660000, "rate": 0.30 },
+        { "min": 660000, "max": 960000, "rate": 0.35 },
+        { "min": 960000, "max": 999999999, "rate": 0.45 }
+      ]
+    },
+    "standardDeductions": {
+      "individual": 60000,
+      "additional": {
+        "specialDeductions": true,
+        "childEducation": 12000,
+        "continuingEducation": 4800,
+        "majorMedical": 80000,
+        "housingLoanInterest": 12000,
+        "housingRent": 18000,
+        "elderCare": 24000
+      }
+    }
+  },
+  "socialInsurance": {
+    "pension": { "employee": 0.08, "employer": 0.16 },
+    "medical": { "employee": 0.02, "employer": 0.06 },
+    "unemployment": { "employee": 0.005, "employer": 0.005 },
+    "workInjury": { "employee": 0, "employer": 0.002 },
+    "maternity": { "employee": 0, "employer": 0.008 },
+    "housingFund": { "employee": 0.12, "employer": 0.12 }
+  },
+  "salesTax": {
+    "vatRate": 0.13,
+    "note": "VAT system with different rates for different goods"
+  },
+  "lastUpdated": "2024-01-01T00:00:00Z"
+}

@@ -1,0 +1,25 @@
+{
+  "country": "Australia",
+  "year": "2024-25",
+  "currency": "AUD",
+  "incomeTax": {
+    "brackets": {
+      "resident": [
+        { "min": 0, "max": 18200, "rate": 0 },
+        { "min": 18200, "max": 45000, "rate": 0.19 },
+        { "min": 45000, "max": 120000, "rate": 0.325 },
+        { "min": 120000, "max": 180000, "rate": 0.37 },
+        { "min": 180000, "max": null, "rate": 0.45 }
+      ]
+    },
+    "medicareLevy": 0.02,
+    "medicareLevySurcharge": 0.01
+  },
+  "superannuation": {
+    "guaranteeRate": 0.115,
+    "concessionalCap": 30000
+  },
+  "gst": 0.10,
+  "lastUpdated": "2024-07-01",
+  "source": "Australian Taxation Office"
+}
