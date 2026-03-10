@@ -508,8 +508,8 @@ function resetTaxCache() {
     }
 }
 
-// Initialize auto-updater when tax config is ready
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize auto-updater when tax config is ready.
+function initializeAutoTaxUpdater() {
     if (window.taxConfig) {
         window.autoTaxUpdater = new AutoTaxUpdater(window.taxConfig);
         
@@ -517,4 +517,10 @@ document.addEventListener('DOMContentLoaded', () => {
         window.updateTaxRates = () => window.autoTaxUpdater.forceUpdate();
         window.getTaxUpdateStatus = () => window.autoTaxUpdater.getUpdateStatus();
     }
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeAutoTaxUpdater);
+} else {
+    initializeAutoTaxUpdater();
+}

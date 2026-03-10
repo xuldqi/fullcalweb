@@ -52,8 +52,13 @@ export default function InlineCalculator({ calculatorType, presetFields }) {
         return;
       }
 
-      const app = window.fullCalApp;
+      let app = window.fullCalApp;
       const container = containerRef.current;
+
+      // Fallback for late-script timing: proactively initialize the legacy app once mounted.
+      if (!app && typeof window.initializeFullCalApp === 'function') {
+        app = window.initializeFullCalApp();
+      }
 
       if (!app || !container || typeof app.getCalculatorContent !== 'function' || typeof app.setupCalculator !== 'function') {
         attempts += 1;

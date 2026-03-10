@@ -5046,14 +5046,23 @@ window.updateUnitOptions = function() {
 
 // Initialize the application when DOM is ready (supports late script execution in Next.js)
 function initializeFullCalApp() {
+    // Keep initialization idempotent for pages that mount calculators after hydration.
+    if (window.fullCalApp && typeof window.fullCalApp.getCalculatorContent === 'function') {
+        return window.fullCalApp;
+    }
+
     console.log('Initializing FullCalApp');
     try {
         window.fullCalApp = new FullCalApp();
         console.log('FullCalApp initialized successfully:', window.fullCalApp);
+        return window.fullCalApp;
     } catch (error) {
         console.error('Error initializing FullCalApp:', error);
+        return null;
     }
 }
+
+window.initializeFullCalApp = initializeFullCalApp;
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeFullCalApp);
