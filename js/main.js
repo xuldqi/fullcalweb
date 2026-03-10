@@ -5044,13 +5044,19 @@ window.updateUnitOptions = function() {
     });
 };
 
-// Initialize the application when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM Content Loaded - Initializing FullCalApp');
+// Initialize the application when DOM is ready (supports late script execution in Next.js)
+function initializeFullCalApp() {
+    console.log('Initializing FullCalApp');
     try {
         window.fullCalApp = new FullCalApp();
         console.log('FullCalApp initialized successfully:', window.fullCalApp);
     } catch (error) {
         console.error('Error initializing FullCalApp:', error);
     }
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeFullCalApp);
+} else {
+    initializeFullCalApp();
+}
