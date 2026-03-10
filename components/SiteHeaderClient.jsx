@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
+import useSiteLanguage from './useSiteLanguage';
 
 const languageOptions = [
   { value: 'en', label: 'English' },
@@ -11,6 +12,25 @@ const languageOptions = [
   { value: 'ja', label: '日本語' },
   { value: 'fr', label: 'Français' },
 ];
+
+const headerLabels = {
+  en: {
+    home: 'Home',
+    financeHub: 'Finance Hub',
+    language: 'Language',
+    region: 'Region',
+    tagline: 'Finance, tax, salary, and regional calculators',
+    global: 'Global / Global Hub',
+  },
+  zh: {
+    home: '首页',
+    financeHub: '金融中心',
+    language: '语言',
+    region: '地区',
+    tagline: '金融、税务、薪资与地区计算器',
+    global: '全球 / 全局中心',
+  },
+};
 
 const regionOptions = [
   { value: '/finance', label: 'Global / Global Hub' },
@@ -25,7 +45,9 @@ const regionOptions = [
 export default function SiteHeaderClient() {
   const router = useRouter();
   const pathname = usePathname();
-  const [language, setLanguage] = useState('en');
+  const language = useSiteLanguage();
+  const [selectedLanguage, setSelectedLanguage] = useState('en');
+  const labels = headerLabels[language] || headerLabels.en;
 
   const regionValue = useMemo(() => {
     const exact = regionOptions.find((option) => option.value === pathname);
@@ -35,7 +57,7 @@ export default function SiteHeaderClient() {
   useEffect(() => {
     const saved = window.localStorage.getItem('fullcal_language');
     const nextLanguage = saved || 'en';
-    setLanguage(nextLanguage);
+    setSelectedLanguage(nextLanguage);
 
     if (window.i18n && typeof window.i18n.setLanguage === 'function') {
       // Default to English on first visit to keep shell and calculator language aligned.
@@ -46,13 +68,18 @@ export default function SiteHeaderClient() {
     }
   }, []);
 
+  useEffect(() => {
+    setSelectedLanguage(language);
+  }, [language]);
+
   const handleLanguageChange = (event) => {
     const nextLanguage = event.target.value;
-    setLanguage(nextLanguage);
+    setSelectedLanguage(nextLanguage);
     window.localStorage.setItem('fullcal_language', nextLanguage);
     if (window.i18n && typeof window.i18n.setLanguage === 'function') {
       window.i18n.setLanguage(nextLanguage);
     }
+    window.dispatchEvent(new CustomEvent('fullcal-language-change', { detail: { language: nextLanguage } }));
   };
 
   const handleRegionChange = (event) => {
@@ -67,18 +94,18 @@ export default function SiteHeaderClient() {
       <div className="page-shell site-header-inner">
         <div className="site-branding">
           <Link href="/" className="site-logo-link">FullCal</Link>
-          <p className="site-tagline">Finance, tax, salary, and regional calculators</p>
+          <p className="site-tagline">{labels.tagline}</p>
         </div>
 
         <nav className="site-nav-links" aria-label="Primary">
-          <Link href="/" className="site-nav-link">Home</Link>
-          <Link href="/finance" className="site-nav-link">Finance Hub</Link>
+          <Link href="/" className="site-nav-link">{labels.home}</Link>
+          <Link href="/finance" className="site-nav-link">{labels.financeHub}</Link>
         </nav>
 
         <div className="site-controls">
           <label className="site-control-field">
-            <span>Language</span>
-            <select value={language} onChange={handleLanguageChange}>
+            <span>{labels.language}</span>
+            <select value={selectedLanguage} onChange={handleLanguageChange}>
               {languageOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
@@ -88,11 +115,11 @@ export default function SiteHeaderClient() {
           </label>
 
           <label className="site-control-field">
-            <span>Region</span>
+            <span>{labels.region}</span>
             <select value={regionValue} onChange={handleRegionChange}>
               {regionOptions.map((option) => (
                 <option key={option.value} value={option.value}>
-                  {option.label}
+                  {option.value === '/finance' ? labels.global : option.label}
                 </option>
               ))}
             </select>

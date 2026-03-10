@@ -1,8 +1,48 @@
+'use client';
+
 import Link from 'next/link';
 import InlineCalculator from './InlineCalculator';
 import CustomCalculatorRenderer from './CustomCalculatorRenderer';
 import StatePaycheckCalculator from './StatePaycheckCalculator';
-import { getBreadcrumbItems, getSuggestedLinksForPage, siteBaseUrl } from '../lib/internal-links';
+import useSiteLanguage from './useSiteLanguage';
+import { getSuggestedLinksForPage, siteBaseUrl } from '../lib/internal-links';
+
+const shellCopy = {
+  en: {
+    home: 'Home',
+    financeHub: 'Finance Hub',
+    browseHub: 'Browse finance hub',
+    backHome: 'Back to homepage',
+    whyMatters: 'Why this page matters',
+    quickInterpretation: 'Quick interpretation',
+    formula: 'Formula',
+    exampleScenarios: 'Example scenarios',
+    useDecisionTool: 'Use it like a decision tool',
+    faq: 'FAQ',
+    commonQuestions: 'Common questions',
+    relatedCalculators: 'Related calculators',
+    nextHighIntent: 'Next high-intent pages',
+    regionalShortcuts: 'Regional shortcuts',
+    exploreNearby: 'Explore nearby long-tail pages',
+  },
+  zh: {
+    home: '首页',
+    financeHub: '金融中心',
+    browseHub: '浏览金融中心',
+    backHome: '返回首页',
+    whyMatters: '页面价值',
+    quickInterpretation: '快速解读',
+    formula: '公式说明',
+    exampleScenarios: '示例场景',
+    useDecisionTool: '按决策场景使用',
+    faq: '常见问题',
+    commonQuestions: '问题解答',
+    relatedCalculators: '相关计算器',
+    nextHighIntent: '下一步推荐',
+    regionalShortcuts: '地区快捷入口',
+    exploreNearby: '探索附近的长尾页面',
+  },
+};
 
 function buildFaqSchema(page) {
   return {
@@ -19,8 +59,12 @@ function buildFaqSchema(page) {
   };
 }
 
-function buildBreadcrumbSchema(page) {
-  const items = getBreadcrumbItems(page);
+function buildBreadcrumbSchema(page, copy) {
+  const items = [
+    { name: copy.home, href: '/' },
+    { name: copy.financeHub, href: '/finance' },
+    { name: page.title, href: page.path || '/finance' },
+  ];
 
   return {
     '@context': 'https://schema.org',
@@ -62,10 +106,16 @@ function renderCalculator(page) {
 }
 
 export default function CalculatorDetailPage({ page }) {
+  const language = useSiteLanguage();
+  const copy = shellCopy[language] || shellCopy.en;
   const faqSchema = buildFaqSchema(page);
-  const breadcrumbSchema = buildBreadcrumbSchema(page);
+  const breadcrumbSchema = buildBreadcrumbSchema(page, copy);
   const pageSchema = buildPageSchema(page);
-  const breadcrumbs = getBreadcrumbItems(page);
+  const breadcrumbs = [
+    { name: copy.home, href: '/' },
+    { name: copy.financeHub, href: '/finance' },
+    { name: page.title, href: page.path || '/finance' },
+  ];
   const suggestedLinks = getSuggestedLinksForPage(page);
 
   return (
@@ -103,15 +153,15 @@ export default function CalculatorDetailPage({ page }) {
             <p className="page-description">{page.description}</p>
             <div className="hero-actions">
               <Link href={page.categoryPath} className="primary-link">
-                Browse finance hub
+                {copy.browseHub}
               </Link>
               <Link href="/" className="secondary-link">
-                Back to homepage
+                {copy.backHome}
               </Link>
             </div>
           </div>
           <aside className="summary-card">
-            <h2>Why this page matters</h2>
+            <h2>{copy.whyMatters}</h2>
             <ul>
               {page.summary.map((item) => (
                 <li key={item}>{item}</li>
@@ -124,7 +174,7 @@ export default function CalculatorDetailPage({ page }) {
       <section className="page-shell calculator-main-grid">
         <div className="calculator-surface">{renderCalculator(page)}</div>
         <aside className="insight-card">
-          <h2>Quick interpretation</h2>
+          <h2>{copy.quickInterpretation}</h2>
           <div className="stack-list">
             {page.interpretation.map((item) => (
               <p key={item}>{item}</p>
@@ -135,7 +185,7 @@ export default function CalculatorDetailPage({ page }) {
 
       <section className="page-shell content-sections">
         <article className="content-card formula-card">
-          <p className="section-label">Formula</p>
+          <p className="section-label">{copy.formula}</p>
           <h2>{page.formula.title}</h2>
           <div className="formula-expression">{page.formula.expression}</div>
           <ul>
@@ -146,8 +196,8 @@ export default function CalculatorDetailPage({ page }) {
         </article>
 
         <article className="content-card">
-          <p className="section-label">Example scenarios</p>
-          <h2>Use it like a decision tool</h2>
+          <p className="section-label">{copy.exampleScenarios}</p>
+          <h2>{copy.useDecisionTool}</h2>
           <div className="scenario-list">
             {page.scenarios.map((scenario) => (
               <div key={scenario.title} className="scenario-item">
@@ -160,8 +210,8 @@ export default function CalculatorDetailPage({ page }) {
         </article>
 
         <article className="content-card faq-card">
-          <p className="section-label">FAQ</p>
-          <h2>Common questions</h2>
+          <p className="section-label">{copy.faq}</p>
+          <h2>{copy.commonQuestions}</h2>
           <div className="faq-list">
             {page.faqs.map((faq) => (
               <div key={faq.question} className="faq-item">
@@ -173,8 +223,8 @@ export default function CalculatorDetailPage({ page }) {
         </article>
 
         <article className="content-card related-card">
-          <p className="section-label">Related calculators</p>
-          <h2>Next high-intent pages</h2>
+          <p className="section-label">{copy.relatedCalculators}</p>
+          <h2>{copy.nextHighIntent}</h2>
           <div className="related-links">
             {page.related.map((item) => (
               <Link key={item.href} href={item.href} className="related-link">
@@ -185,8 +235,8 @@ export default function CalculatorDetailPage({ page }) {
         </article>
 
         <article className="content-card related-card">
-          <p className="section-label">Regional shortcuts</p>
-          <h2>Explore nearby long-tail pages</h2>
+          <p className="section-label">{copy.regionalShortcuts}</p>
+          <h2>{copy.exploreNearby}</h2>
           <div className="link-chip-grid">
             {suggestedLinks.map((item) => (
               <Link key={item.href} href={item.href} className="link-chip">
